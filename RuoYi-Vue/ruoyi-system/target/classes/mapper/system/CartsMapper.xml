@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CartsMapper">
+    
+    <resultMap type="Carts" id="CartsResult">
+        <result property="cartId"    column="cart_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="productId"    column="product_id"    />
+        <result property="productType"    column="product_type"    />
+        <result property="quantity"    column="quantity"    />
+        <result property="productName"    column="product_name"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="description"    column="description"    />
+        <result property="qualityLevel"    column="quality_level"    />
+        <result property="price"    column="price"    />
+        <result property="totalPrice"    column="total_price"    />
+    </resultMap>
+
+    <sql id="selectCartsVo">
+        select cart_id, user_id, product_id, product_type, quantity, product_name, image_url, description, quality_level, price, total_price from carts
+    </sql>
+
+    <select id="selectCartsList" parameterType="Carts" resultMap="CartsResult">
+        <include refid="selectCartsVo"/>
+        <where>  
+            <if test="cartId != null "> and cart_id = #{cartId}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="productId != null "> and product_id = #{productId}</if>
+            <if test="productType != null  and productType != ''"> and product_type = #{productType}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="productName != null  and productName != ''"> and product_name like concat('%', #{productName}, '%')</if>
+            <if test="imageUrl != null  and imageUrl != ''"> and image_url = #{imageUrl}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="qualityLevel != null  and qualityLevel != ''"> and quality_level = #{qualityLevel}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="totalPrice != null "> and total_price = #{totalPrice}</if>
+        </where>
+    </select>
+    
+    <select id="selectCartsByCartId" parameterType="Long" resultMap="CartsResult">
+        <include refid="selectCartsVo"/>
+        where cart_id = #{cartId}
+    </select>
+
+    <insert id="insertCarts" parameterType="Carts">
+        insert into carts
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cartId != null">cart_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="productId != null">product_id,</if>
+            <if test="productType != null and productType != ''">product_type,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="productName != null">product_name,</if>
+            <if test="imageUrl != null">image_url,</if>
+            <if test="description != null">description,</if>
+            <if test="qualityLevel != null">quality_level,</if>
+            <if test="price != null">price,</if>
+            <if test="totalPrice != null">total_price,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="cartId != null">#{cartId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="productId != null">#{productId},</if>
+            <if test="productType != null and productType != ''">#{productType},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="productName != null">#{productName},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="description != null">#{description},</if>
+            <if test="qualityLevel != null">#{qualityLevel},</if>
+            <if test="price != null">#{price},</if>
+            <if test="totalPrice != null">#{totalPrice},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCarts" parameterType="Carts">
+        update carts
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="productId != null">product_id = #{productId},</if>
+            <if test="productType != null and productType != ''">product_type = #{productType},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="productName != null">product_name = #{productName},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="qualityLevel != null">quality_level = #{qualityLevel},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="totalPrice != null">total_price = #{totalPrice},</if>
+        </trim>
+        where cart_id = #{cartId}
+    </update>
+
+    <delete id="deleteCartsByCartId" parameterType="Long">
+        delete from carts where cart_id = #{cartId}
+    </delete>
+
+    <delete id="deleteCartsByCartIds" parameterType="String">
+        delete from carts where cart_id in 
+        <foreach item="cartId" collection="array" open="(" separator="," close=")">
+            #{cartId}
+        </foreach>
+    </delete>
+</mapper>

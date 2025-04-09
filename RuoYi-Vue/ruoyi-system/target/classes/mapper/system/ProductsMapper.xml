@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.ProductsMapper">
+    
+    <resultMap type="Products" id="ProductsResult">
+        <result property="productType"    column="product_type"    />
+        <result property="productId"    column="product_id"    />
+        <result property="productName"    column="product_name"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="description"    column="description"    />
+        <result property="qualityLevel"    column="quality_level"    />
+        <result property="stock"    column="stock"    />
+        <result property="status"    column="status"    />
+        <result property="price"    column="price"    />
+    </resultMap>
+
+    <sql id="selectProductsVo">
+        select product_type, product_id, product_name, image_url, description, quality_level, stock, status, price from products
+    </sql>
+
+    <select id="selectProductsList" parameterType="Products" resultMap="ProductsResult">
+        <include refid="selectProductsVo"/>
+        <where>  
+            <if test="productType != null  and productType != ''"> and product_type = #{productType}</if>
+            <if test="productId != null "> and product_id = #{productId}</if>
+            <if test="productName != null  and productName != ''"> and product_name like concat('%', #{productName}, '%')</if>
+            <if test="imageUrl != null  and imageUrl != ''"> and image_url = #{imageUrl}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="qualityLevel != null  and qualityLevel != ''"> and quality_level = #{qualityLevel}</if>
+            <if test="stock != null "> and stock = #{stock}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="price != null "> and price = #{price}</if>
+        </where>
+    </select>
+    
+    <select id="selectProductsByProductType" parameterType="String" resultMap="ProductsResult">
+        <include refid="selectProductsVo"/>
+        where product_type = #{productType}
+    </select>
+
+    <insert id="insertProducts" parameterType="Products">
+        insert into products
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productType != null and productType != ''">product_type,</if>
+            <if test="productId != null">product_id,</if>
+            <if test="productName != null and productName != ''">product_name,</if>
+            <if test="imageUrl != null">image_url,</if>
+            <if test="description != null">description,</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level,</if>
+            <if test="stock != null">stock,</if>
+            <if test="status != null">status,</if>
+            <if test="price != null">price,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productType != null and productType != ''">#{productType},</if>
+            <if test="productId != null">#{productId},</if>
+            <if test="productName != null and productName != ''">#{productName},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="description != null">#{description},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">#{qualityLevel},</if>
+            <if test="stock != null">#{stock},</if>
+            <if test="status != null">#{status},</if>
+            <if test="price != null">#{price},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProducts" parameterType="Products">
+        update products
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">product_id = #{productId},</if>
+            <if test="productName != null and productName != ''">product_name = #{productName},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level = #{qualityLevel},</if>
+            <if test="stock != null">stock = #{stock},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="price != null">price = #{price},</if>
+        </trim>
+        where product_type = #{productType}
+    </update>
+
+    <delete id="deleteProductsByProductType" parameterType="String">
+        delete from products where product_type = #{productType}
+    </delete>
+
+    <delete id="deleteProductsByProductTypes" parameterType="String">
+        delete from products where product_type in 
+        <foreach item="productType" collection="array" open="(" separator="," close=")">
+            #{productType}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>登录 - 苹果商城</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CLato%7CKalam:300,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;text-align:center;position: relative;z-index: 9999;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-lg-tablet-layout="rd-navbar-static" data-lg-device-layout-point="md" data-lg-stick-up-offset="46px" data-lg-stick-up="true" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xl-device-layout-point="lg" data-xl-stick-up-offset="46px" data-xl-stick-up="true">
+            <div class="rd-navbar-main-element">
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <div class="rd-navbar-brand">
+                  <a class="brand" href="index.html">
+                    <img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/>
+                    <img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Page Content-->
+      <main class="page-content">
+        <!-- Login-->
+        <section class="section section-lg bg-default">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="card card-custom">
+                  <div class="card-header">
+                    <h3 class="card-title">用户登录</h3>
+                  </div>
+                  <div class="card-body">
+                    <div id="app">
+                      <div v-if="loading" class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status">
+                          <span class="visually-hidden">加载中...</span>
+                        </div>
+                      </div>
+                      <div v-else-if="error" class="alert alert-danger" role="alert">
+                        {{ error }}
+                      </div>
+                      <form v-else @submit.prevent="handleLogin" class="rd-form rd-form-centered">
+                        <div class="form-wrap">
+                          <input class="form-input" id="username" type="text" name="username" v-model="username" placeholder="用户名" required>
+                        </div>
+                        <div class="form-wrap">
+                          <input class="form-input" id="password" type="password" name="password" v-model="password" placeholder="密码" required>
+                        </div>
+                        <div class="form-wrap">
+                          <div class="row align-items-center">
+                            <div class="col-8">
+                              <input class="form-input" id="code" type="text" name="code" v-model="code" placeholder="验证码" required>
+                            </div>
+                            <div class="col-4">
+                              <img :src="captchaImg" @click="refreshCaptcha" alt="验证码" class="img-fluid" style="cursor: pointer;">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-wrap">
+                          <button class="button button-block button-primary" type="submit">登录</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Page Footer-->
+      <footer class="section footer-classic">
+        <div class="container">
+          <div class="row row-50">
+            <div class="col-lg-4">
+              <div class="footer-classic-logo-wrap">
+                <a class="brand" href="index.html">
+                  <img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/>
+                  <img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/>
+                </a>
+              </div>
+              <p class="footer-classic-text">我们提供最优质的苹果产品，让您享受健康美味的生活。</p>
+            </div>
+            <div class="col-lg-4">
+              <h4 class="footer-classic-title">联系我们</h4>
+              <div class="footer-classic-contact">
+                <p>电话：<a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>邮箱：<a href="mailto:info@example.com">info@example.com</a></p>
+                <p>地址：北京市朝阳区xxx街道xxx号</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <h4 class="footer-classic-title">关注我们</h4>
+              <div class="footer-classic-social">
+                <ul class="list-inline">
+                  <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                  <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                  <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                  <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-classic-bottom-panel">
+          <div class="container">
+            <div class="row justify-content-sm-center align-items-center row-10">
+              <div class="col-md-6 text-center text-md-left">
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>苹果商城</span><span>.&nbsp; All rights reserved.</span></p>
+              </div>
+              <div class="col-md-auto">
+                <div class="group-sm group-middle"><img src="images/payment-1-45x15.png" alt="" width="45" height="15"/><img src="images/payment-2-46x28.png" alt="" width="46" height="28"/><img src="images/payment-3-62x17.png" alt="" width="62" height="17"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="../js/api.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data: {
+        username: '',
+        password: '',
+        code: '',
+        uuid: '',
+        captchaImg: '',
+        loading: false,
+        error: null
+      },
+      created() {
+        this.refreshCaptcha()
+      },
+      methods: {
+        async refreshCaptcha() {
+          try {
+            const response = await window.api.getCaptchaImage()
+            if (response.code === 200) {
+              this.captchaImg = 'data:image/gif;base64,' + response.img
+              this.uuid = response.uuid
+            }
+          } catch (error) {
+            console.error('获取验证码失败:', error)
+            this.error = '获取验证码失败，请刷新页面重试'
+          }
+        },
+        async handleLogin() {
+          try {
+            this.loading = true
+            this.error = null
+            
+            const response = await window.api.login(
+              this.username,
+              this.password,
+              this.code,
+              this.uuid
+            )
+            
+            if (response.code === 200) {
+              localStorage.setItem('token', response.token)
+              window.location.href = 'index.html'
+            } else {
+              this.error = response.msg || '登录失败'
+              this.refreshCaptcha()
+            }
+          } catch (error) {
+            console.error('登录失败:', error)
+            this.error = '登录失败，请稍后重试'
+            this.refreshCaptcha()
+          } finally {
+            this.loading = false
+          }
+        }
+      }
+    })
+    </script>
+  </body>
+</html> 

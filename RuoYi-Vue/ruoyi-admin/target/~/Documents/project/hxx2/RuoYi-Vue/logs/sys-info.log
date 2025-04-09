@@ -1,0 +1,66 @@
+01:08:37.813 [schedule-pool-10] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][用户不存在/密码错误]
+01:08:51.890 [schedule-pool-20] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[admin][Success][登录成功]
+01:09:34.892 [schedule-pool-12] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+01:10:27.854 [schedule-pool-13] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[admin][Logout][退出成功]
+01:10:33.880 [schedule-pool-7] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+01:10:51.870 [schedule-pool-14] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+01:49:45.602 [schedule-pool-15] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+02:43:11.470 [schedule-pool-4] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+02:47:35.248 [schedule-pool-29] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][用户不存在/密码错误]
+02:47:45.554 [schedule-pool-15] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][用户不存在/密码错误]
+02:47:53.664 [schedule-pool-30] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][验证码错误]
+02:48:03.291 [schedule-pool-8] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+10:38:16.743 [schedule-pool-31] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+10:38:55.832 [schedule-pool-16] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+10:49:37.744 [schedule-pool-33] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][验证码错误]
+10:49:50.184 [schedule-pool-17] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+11:13:38.957 [schedule-pool-19] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+13:54:29.963 [schedule-pool-38] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+13:55:28.478 [schedule-pool-10] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+14:40:39.384 [schedule-pool-39] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+15:36:40.542 [schedule-pool-40] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+16:17:24.368 [schedule-pool-41] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+16:24:50.636 [schedule-pool-22] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+16:46:43.286 [schedule-pool-2] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Error][验证码错误]
+16:46:53.843 [schedule-pool-49] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+16:47:28.829 [schedule-pool-25] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Logout][退出成功]
+16:47:37.007 [schedule-pool-50] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[admin][Success][登录成功]
+16:48:36.753 [schedule-pool-27] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]
+16:55:27.235 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:55:27.235 [main] INFO  c.r.RuoYiApplication - [logStarting,55] - Starting RuoYiApplication using Java 23.0.2 on lingluodeMacBook-Air.local with PID 11417 (/Users/lingluo/Documents/project/hxx2/RuoYi-Vue/ruoyi-admin/target/ruoyi-admin.jar started by lingluo in /Users/lingluo/Documents/project/hxx2/RuoYi-Vue/ruoyi-admin/target)
+16:55:27.238 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "druid"
+16:55:28.949 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+16:55:28.952 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:55:28.952 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.102]
+16:55:29.006 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:55:29.672 [main] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+16:55:29.674 [Druid-ConnectionPool-Create-1320443884] INFO  c.a.d.p.DruidAbstractDataSource - [setFailContinuous,1900] - {dataSource-1} failContinuous is true
+16:55:29.685 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+16:56:19.961 [main] INFO  c.r.RuoYiApplication - [logStarting,55] - Starting RuoYiApplication using Java 23.0.2 on lingluodeMacBook-Air.local with PID 12340 (/Users/lingluo/Documents/project/hxx2/RuoYi-Vue/ruoyi-admin/target/ruoyi-admin.jar started by lingluo in /Users/lingluo/Documents/project/hxx2/RuoYi-Vue/ruoyi-admin/target)
+16:56:19.964 [main] INFO  c.r.RuoYiApplication - [logStartupProfileInfo,686] - The following 1 profile is active: "druid"
+16:56:19.965 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:56:21.345 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-8080"]
+16:56:21.347 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:56:21.348 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.102]
+16:56:21.398 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:56:22.289 [main] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+16:56:23.691 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+16:56:23.698 [main] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:56:23.698 [main] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+16:56:23.699 [main] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+16:56:23.699 [main] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+16:56:23.699 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+16:56:23.699 [main] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+16:56:23.700 [main] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3c81cd82
+16:56:24.503 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-8080"]
+16:56:24.642 [main] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+16:56:24.648 [main] INFO  c.r.RuoYiApplication - [logStarted,61] - Started RuoYiApplication in 4.963 seconds (JVM running for 5.437)
+16:57:11.868 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:58:37.045 [schedule-pool-1] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[hxx][Success][登录成功]

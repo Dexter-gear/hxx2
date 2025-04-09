@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        color: white;
+        z-index: 9999;
+        animation: fadeInOut 2s ease-in-out;
+      }
+      .message.success {
+        background-color: #4CAF50;
+      }
+      .message.error {
+        background-color: #f44336;
+      }
+      @keyframes fadeInOut {
+        0% { opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      .order-info {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+      .info-item {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      .info-item .label {
+        width: 100px;
+        color: #666;
+      }
+      .info-item .value {
+        flex: 1;
+        color: #333;
+        font-weight: 500;
+      }
+      .table-cart {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .table-cart th,
+      .table-cart td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+      }
+      .table-cart th {
+        background: #f8f9fa;
+        font-weight: 600;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="order-detail">
+        <h2>订单详情</h2>
+        <div class="order-info">
+          <div class="info-item">
+            <span class="label">订单编号：</span>
+            <span class="value" id="orderNo">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">创建时间：</span>
+            <span class="value" id="createTime">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">订单状态：</span>
+            <span class="value" id="status">-</span>
+          </div>
+          <div class="info-item">
+            <span class="label">订单金额：</span>
+            <span class="value" id="totalAmount">-</span>
+          </div>
+        </div>
+        <div class="order-items">
+          <h3>商品列表</h3>
+          <table class="table-cart" id="orderItems">
+            <thead>
+              <tr>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 商品列表将通过JavaScript动态生成 -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/order-detail.js"></script>
+  </body>
+</html>

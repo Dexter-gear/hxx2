@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh">
+  <head>
+    <title>商品列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CLato%7CKalam:300,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/api.js"></script>
+    <style>
+      .empty-message {
+        text-align: center;
+        padding: 50px;
+        font-size: 18px;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-bell">
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="app">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px" data-xl-stick-up-offset="100px" data-xxl-stick-up-offset="100px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="../"><img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/><img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                   <li class="rd-nav-item active"><a class="rd-nav-link" href="./index.html">首页</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="smoothie-shop.html">特色农产品</a>
+                        </li>
+                        <li class="rd-dropdown-item active"><a class="rd-dropdown-link" href="index.html">农产品基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="fruit-farm.html">苹果基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="poultry-farm.html">核桃基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="winery.html">板栗基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="dairy-farm.html">小米基地</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">产品分类</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="about-us.html">关于我们</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="what-we-offer.html">产品展示</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="our-team.html">我们的团队</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="testimonials.html">客户评价</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="pricing-list.html">价格列表</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-blog.html">新闻资讯</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-blog.html">行业动态</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-list.html">企业新闻</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">产品知识</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-gallery.html">产品展示</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-gallery.html">产品图片</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-fullwidth-gallery.html">基地展示</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="masonry-gallery.html">生产过程</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="masonry-fullwidth-gallery.html">荣誉展示</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">在线商城</a>
+                      <ul class="rd-menu rd-navbar-megamenu">
+                        <li class="rd-megamenu-item rd-megamenu-item-1">
+                          <h6 class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-apps"></span><span class="rd-megamenu-text">产品分类</span></h6>
+                          <ul class="rd-megamenu-list">
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">苹果系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="icon-lists.html">核桃系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">板栗系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="calls-to-action.html">小米系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">山野菜系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">礼品系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">其他特产</a></li>
+                          </ul>
+                        </li>
+                        <li class="rd-megamenu-item rd-megamenu-item-2">
+                          <h6 class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-layers"></span><span class="rd-megamenu-text">其他页面</span></h6>
+                          <ul class="rd-megamenu-list">
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 页面</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">即将上线</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contact-us.html">联系我们</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="terms-of-use.html">使用条款</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">搜索结果</a></li>
+                          </ul>
+                        </li>
+                        <li class="rd-megamenu-item rd-megamenu-banner">
+                          <div class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-carrot"></span><span class="rd-megamenu-text">欢迎光临我们的商店</span></div><a class="banner-classic" href="grid-shop.html"><img src="images/banner-1-300x202.jpg" alt="" width="300" height="202"/></a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">购物中心</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ecwid-shop.html">网上商城</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-shop.html">商品列表</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="shop-list.html">商品详情</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-product.html">单个商品</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="cart-page.html">购物车</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="checkout.html">结算中心</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <!-- RD Navbar Search-->
+                  <div class="rd-navbar-search rd-navbar-search-2">
+                    <button class="rd-navbar-search-toggle rd-navbar-fixed-element-3" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+                    <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                      <div class="form-wrap">
+                        <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
+                        <label class="form-label" for="rd-navbar-search-form-input">Search...</label>
+                        <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                        <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- RD Navbar Basket-->
+                  <div class="rd-navbar-basket-wrap">
+                    <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"><span>2</span></button>
+                    <div class="cart-inline">
+                      <div class="cart-inline-header">
+                        <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
+                        <h6 class="cart-inline-title">Total price:<span> $43</span></h6>
+                      </div>
+                      <div class="cart-inline-body">
+                        <div class="cart-inline-item">
+                          <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-6-100x90.png" alt="" width="100" height="90"/></a></div>
+                            <div class="unit-body">
+                              <h6 class="cart-inline-name"><a href="single-product.html">Oranges</a></h6>
+                              <div>
+                                <div class="group-xs group-middle">
+                                  <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000" title="商品数量" aria-label="商品数量"/>
+                                  </div>
+                                  <h6 class="cart-inline-title">$20.00</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-inline-item">
+                          <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-7-100x90.png" alt="" width="100" height="90"/></a></div>
+                            <div class="unit-body">
+                              <h6 class="cart-inline-name"><a href="single-product.html">Bananas</a></h6>
+                              <div>
+                                <div class="group-xs group-middle">
+                                  <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000" title="商品数量" aria-label="商品数量"/>
+                                  </div>
+                                  <h6 class="cart-inline-title">$23.00</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cart-inline-footer">
+                        <div class="group-sm"><a class="button button-default-outline-2 button-zakaria" href="cart-page.html">Go to cart</a><a class="button button-primary button-zakaria" href="checkout.html">Checkout</a></div>
+                      </div>
+                    </div>
+                  </div><a class="rd-navbar-basket rd-navbar-basket-mobile fl-bigmug-line-shopping202 rd-navbar-fixed-element-2" href="cart-page.html"><span>2</span></a>
+                  <button class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" type="button" data-multitoggle=".rd-navbar-main" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate"><span class="project-hamburger"><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span></span></button>
+                </div>
+                <div class="rd-navbar-project">
+                  <div class="rd-navbar-project-header">
+                    <button class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" type="button" data-multitoggle=".rd-navbar-main" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate><span class="project-close"><span></span><span></span></span></button>
+                    <h5 class="rd-navbar-project-title">Our Contacts</h5>
+                  </div>
+                  <div class="rd-navbar-project-content">
+                    <div>
+                      <div>
+                        <!-- Owl Carousel-->
+                        <div class="owl-carousel" data-items="1" data-dots="true" data-autoplay="true"><img src="images/about-5-350x269.jpg" alt="" width="350" height="269"/><img src="images/about-6-350x269.jpg" alt="" width="350" height="269"/><img src="images/about-7-350x269.jpg" alt="" width="350" height="269"/>
+                        </div>
+                        <ul class="contacts-modern">
+                          <li><a href="#">523 Sylvan Ave, 5th Floor<br>Mountain View, CA 94041 USA</a></li>
+                          <li><a href="tel:#">+1 (844) 123 456 78</a></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul class="list-inline list-social list-inline-xl">
+                          <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                          <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                          <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                          <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/bg-shop.jpg">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">苹果产品商城</h2>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom-footer">
+          <div class="container">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">首页</a></li>
+              <li><a href="grid-shop.html">商城</a></li>
+              <li class="active">苹果产品</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Section Shop-->
+      <section class="section section-xxl bg-default text-md-start">
+        <div class="container">
+          <div class="row row-50">
+            <div class="col-lg-4 col-xl-3">
+              <div class="aside row row-30 row-md-50 justify-content-md-between">
+                <div class="aside-item col-12">
+                  <h6 class="aside-title">按价格筛选</h6>
+                  <!-- RD Range-->
+                  <div class="rd-range" data-min="0" data-max="30" data-min-diff="1" data-start="[0, 20]" data-step="1" data-tooltip="false" data-input=".rd-range-input-value-1" data-input-2=".rd-range-input-value-2"></div>
+                  <div class="group-xs group-justify">
+                    <div>
+                      <button class="button button-sm button-secondary button-zakaria" type="button" @click="filterByPrice">筛选</button>
+                    </div>
+                    <div>
+                      <div class="rd-range-wrap">
+                        <div class="rd-range-title">价格:</div>
+                        <div class="rd-range-form-wrap"><span>¥</span>
+                          <input class="rd-range-input rd-range-input-value-1" type="text" name="value-1" v-model="priceRange.min" title="最低价格">
+                        </div>
+                        <div class="rd-range-divider"></div>
+                        <div class="rd-range-form-wrap"><span>¥</span>
+                          <input class="rd-range-input rd-range-input-value-2" type="text" name="value-2" v-model="priceRange.max" title="最高价格">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="aside-item col-sm-6 col-md-5 col-lg-12">
+                  <h6 class="aside-title">苹果品种</h6>
+                  <ul class="list-shop-filter">
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="all" type="checkbox" v-model="filters.appleTypes" @change="handleAllAppleTypes">全部
+                      </label>
+                      <span class="list-shop-filter-number">(8)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="red_fuji_apple" type="checkbox" v-model="filters.appleTypes" @change="handleAppleTypeChange">红富士苹果
+                      </label>
+                      <span class="list-shop-filter-number">(3)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="hongxing_apple" type="checkbox" v-model="filters.appleTypes" @change="handleAppleTypeChange">红星苹果
+                      </label>
+                      <span class="list-shop-filter-number">(1)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="guoguang_apple" type="checkbox" v-model="filters.appleTypes" @change="handleAppleTypeChange">国光苹果
+                      </label>
+                      <span class="list-shop-filter-number">(2)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="jinguan_apple" type="checkbox" v-model="filters.appleTypes" @change="handleAppleTypeChange">金冠苹果
+                      </label>
+                      <span class="list-shop-filter-number">(1)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="apple-type" value="green_apple" type="checkbox" v-model="filters.appleTypes" @change="handleAppleTypeChange">青苹果
+                      </label>
+                      <span class="list-shop-filter-number">(1)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="aside-item col-sm-6 col-lg-12">
+                  <h6 class="aside-title">品质等级</h6>
+                  <ul class="list-shop-filter">
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="quality-level" value="all" type="checkbox" v-model="filters.qualityLevels" @change="handleAllQualityLevels">全部
+                      </label>
+                      <span class="list-shop-filter-number">(8)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="quality-level" value="特级" type="checkbox" v-model="filters.qualityLevels" @change="handleQualityLevelChange">特级
+                      </label>
+                      <span class="list-shop-filter-number">(5)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="quality-level" value="一级" type="checkbox" v-model="filters.qualityLevels" @change="handleQualityLevelChange">一级
+                      </label>
+                      <span class="list-shop-filter-number">(2)</span>
+                    </li>
+                    <li>
+                      <label class="checkbox-inline">
+                        <input name="quality-level" value="二级" type="checkbox" v-model="filters.qualityLevels" @change="handleQualityLevelChange">二级
+                      </label>
+                      <span class="list-shop-filter-number">(1)</span>
+                    </li>
+                  </ul>
+                  <!-- RD Search Form-->
+                  <form class="rd-search form-search" @submit.prevent="searchProducts">
+                    <div class="form-wrap">
+                      <input class="form-input" id="search-form" type="text" name="s" autocomplete="off" v-model="searchQuery" placeholder="搜索商品..." title="搜索输入框">
+                      <label class="form-label" for="search-form">搜索商品...</label>
+                      <button class="button-search fl-bigmug-line-search74" type="submit" title="搜索"></button>
+                    </div>
+                  </form>
+                </div>
+                <div class="aside-item col-sm-6 col-lg-12">
+                  <h6 class="aside-title">热门产品</h6>
+                  <div class="row row-10 row-lg-20 gutters-10">
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-1-106x104.png" alt="Galia Melons" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="single-product.html">红富士特级果</a></p>
+                            <p class="product-minimal-price">¥15.00</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-2-106x104.png" alt="Pineapples" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="single-product.html">红星特级果</a></p>
+                            <p class="product-minimal-price">¥13.00</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="col-4 col-sm-6 col-md-12">
+                      <!-- Product Minimal-->
+                      <article class="product-minimal">
+                        <div class="unit unit-spacing-sm flex-column flex-md-row align-items-center">
+                          <div class="unit-left"><a class="product-minimal-figure" href="single-product.html"><img src="images/product-mini-3-106x104.png" alt="Oranges" width="106" height="104"/></a></div>
+                          <div class="unit-body">
+                            <p class="product-minimal-title"><a href="single-product.html">青苹果特级果</a></p>
+                            <p class="product-minimal-price">¥14.00</p>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <div class="product-top-panel group-md">
+                <p class="product-top-panel-title">显示 {{ filteredProducts.length }} 个苹果产品</p>
+                <div>
+                  <div class="group-sm group-middle">
+                    <div class="product-top-panel-sorting">
+                      <select title="排序方式" v-model="sortOption" @change="sortProducts">
+                        <option value="newest">按新品排序</option>
+                        <option value="price_asc">价格从低到高</option>
+                        <option value="price_desc">价格从高到低</option>
+                        <option value="name">按名称排序</option>
+                      </select>
+                    </div>
+                    <div class="product-view-toggle"><a class="mdi mdi-apps product-view-link product-view-grid active" href="grid-shop.html"></a><a class="mdi mdi-format-list-bulleted product-view-link product-view-list" href="shop-list.html"></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-30 row-lg-50">
+                <!-- Products-->
+                <div class="col-12">
+                  <!-- 加载状态 -->
+                  <div v-if="loading" class="col-12 text-center">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">加载中...</span>
+                    </div>
+                  </div>
+                  
+                  <!-- 错误提示 -->
+                  <div v-else-if="error" class="col-12">
+                    <div class="alert alert-danger" role="alert">
+                      {{ error }}
+                    </div>
+                  </div>
+                  
+                  <!-- 商品列表为空 -->
+                  <div v-else-if="filteredProducts.length === 0" class="col-12">
+                    <div class="empty-message">
+                      暂无符合条件的商品
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- 商品列表 -->
+                <div v-if="!loading && !error && filteredProducts.length > 0" v-for="product in filteredProducts" :key="product.id" class="col-sm-6 col-lg-4 col-xl-3">
+                  <!-- Product-->
+                  <article class="product wow fadeInRight">
+                    <div class="product-body">
+                      <div class="product-figure">
+                        <img :src="product.imageUrl || 'images/product-mini-1-106x104.png'" :alt="product.productName" :title="product.productName" width="106" height="104"/>
+                      </div>
+                      <h5 class="product-title">
+                        <a :href="'single-product.html?id=' + product.id + '&tableName=' + product.tableName">{{ product.productName }}</a>
+                      </h5>
+                      <div class="product-price-wrap">
+                        <div class="product-price">¥{{ product.calculatedPrice || product.price }}</div>
+                      </div>
+                    </div>
+                    <div class="product-button-wrap">
+                      <div class="product-button">
+                        <a class="button button-secondary button-zakaria fl-bigmug-line-search74" :href="'single-product.html?id=' + product.id + '&tableName=' + product.tableName" title="查看详情"></a>
+                      </div>
+                      <div class="product-button">
+                        <a class="button button-primary button-zakaria fl-bigmug-line-shopping202" href="#" @click.prevent="addToCart(product)" title="添加到购物车"></a>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <div class="pagination-wrap">
+                <!-- Bootstrap Pagination-->
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li class="page-item page-item-control disabled"><a class="page-link" href="#" aria-label="Previous"><span class="icon" aria-hidden="true"></span></a></li>
+                    <li class="page-item active"><span class="page-link">1</span></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span class="icon" aria-hidden="true"></span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer class="section footer-classic">
+        <div class="footer-classic-body section-lg">
+          <div class="container">
+            <div class="row row-40 row-md-50 justify-content-xl-between">
+              <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+                <div class="footer-classic-brand">
+                  <!--Brand--><a class="brand" href="../"><img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/><img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/></a>
+                </div>
+                <ul class="list-schedule">
+                  <li><span>Weekdays:</span><span>08:00am - 08:00pm</span></li>
+                  <li><span>Weekends:</span><span>10:00am - 06:00pm</span></li>
+                </ul>
+                <div class="footer-classic-social">
+                  <div class="group-lg group-middle">
+                    <p>Get Social</p>
+                    <div>
+                      <ul class="list-inline list-social list-inline-sm">
+                        <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                        <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                        <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                        <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+                <h4 class="footer-classic-title">Contacts</h4>
+                <ul class="contacts-creative">
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                      <div class="unit-body"><a href="#">523 Sylvan Ave, 5th Floor<br/>Mountain View, CA 94041 USA</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                      <div class="unit-body"><a href="tel:#">+1 (844) 123 456 78</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                      <div class="unit-body"><a href="mailto:#">info@demolink.org</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
+                <h4 class="footer-classic-title">Newsletter</h4>
+                <p>Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                <!-- RD Mailform-->
+                <form class="rd-form rd-mailform rd-form-inline rd-form-inline-2" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                  <div class="form-wrap">
+                    <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required"/>
+                    <label class="form-label" for="subscribe-form-2-email">Enter your e-mail</label>
+                  </div>
+                  <div class="form-button">
+                    <button class="button button-icon-2 button-zakaria button-secondary" type="submit"><span class="fl-bigmug-line-paper122"></span></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-classic-panel">
+          <div class="container">
+            <div class="row row-10 align-items-center justify-content-sm-between">
+              <div class="col-md-auto">
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Farm</span><span>.&nbsp; All rights reserved.</span></p>
+              </div>
+              <div class="col-md-auto order-md-1"><a href="terms-of-use.html">Privacy Policy</a> <a target="_blank" href="https://www.mobanwang.com/" title="网站模板">网站模板</a></div>
+              <div class="col-md-auto">
+                <div class="group-sm group-middle">
+                  <img src="images/payment-1-45x15.png" alt="支付方式1" width="45" height="15"/>
+                  <img src="images/payment-2-46x28.png" alt="支付方式2" width="46" height="28"/>
+                  <img src="images/payment-3-62x17.png" alt="支付方式3" width="62" height="17"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // 创建Vue实例
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            products: [],
+            loading: false,
+            error: null,
+            priceRules: [],
+            priceRange: {
+              min: 0,
+              max: 30
+            },
+            filters: {
+              appleTypes: ['all'],
+              qualityLevels: ['all']
+            },
+            searchQuery: '',
+            sortOption: 'newest',
+            allProducts: [ // 模拟数据 - 图片暂时使用网站已有的图片资源，后续图片将在后台获取
+              {
+                id: 1,
+                productName: '平山红富士特级果',
+                price: 15,
+                stock: 100,
+                qualityLevel: '特级',
+                tableName: 'hfs_apple',
+                productType: 'red_fuji_apple',
+                imageUrl: 'images/product-mini-1-106x104.png', // 临时使用替代图片
+                status: 1
+              },
+              {
+                id: 2,
+                productName: '平山红富士一级果',
+                price: 12,
+                stock: 150,
+                qualityLevel: '一级',
+                tableName: 'hfs_apple',
+                productType: 'red_fuji_apple',
+                imageUrl: 'images/product-mini-2-106x104.png',
+                status: 1
+              },
+              {
+                id: 3,
+                productName: '平山国光特级果',
+                price: 14,
+                stock: 80,
+                qualityLevel: '特级',
+                tableName: 'gg_apple',
+                productType: 'guoguang_apple',
+                imageUrl: 'images/product-mini-3-106x104.png',
+                status: 1
+              },
+              {
+                id: 4,
+                productName: '平山国光一级果',
+                price: 11,
+                stock: 120,
+                qualityLevel: '一级',
+                tableName: 'gg_apple',
+                productType: 'guoguang_apple',
+                imageUrl: 'images/product-mini-1-106x104.png',
+                status: 1
+              },
+              {
+                id: 5,
+                productName: '平山红星特级果',
+                price: 13,
+                stock: 90,
+                qualityLevel: '特级',
+                tableName: 'hx_apple',
+                productType: 'hongxing_apple',
+                imageUrl: 'images/product-mini-2-106x104.png',
+                status: 1
+              },
+              {
+                id: 6,
+                productName: '平山金冠特级果',
+                price: 16,
+                stock: 70,
+                qualityLevel: '特级',
+                tableName: 'jg_apple',
+                productType: 'jinguan_apple',
+                imageUrl: 'images/product-mini-3-106x104.png',
+                status: 1
+              },
+              {
+                id: 7,
+                productName: '平山青苹果特级果',
+                price: 14,
+                stock: 85,
+                qualityLevel: '特级',
+                tableName: 'g_apple',
+                productType: 'green_apple',
+                imageUrl: 'images/product-mini-3-106x104.png',
+                status: 1
+              },
+              {
+                id: 8,
+                productName: '平山红富士二级果',
+                price: 10,
+                stock: 200,
+                qualityLevel: '二级',
+                tableName: 'hfs_apple',
+                productType: 'red_fuji_apple',
+                imageUrl: 'images/product-mini-1-106x104.png',
+                status: 1
+              }
+            ]
+          }
+        },
+        computed: {
+          filteredProducts() {
+            console.log('计算filteredProducts，当前产品数:', this.allProducts.length);
+            
+            if (!this.allProducts.length) {
+              console.log('没有产品可筛选');
+              return [];
+            }
+            
+            // 创建一个商品数据的副本进行筛选
+            let result = [...this.allProducts];
+            console.log('初始产品数:', result.length);
+            
+            // 1. 按价格筛选
+            result = result.filter(product => {
+              const price = Number(product.calculatedPrice || product.price);
+              const inRange = price >= Number(this.priceRange.min) && price <= Number(this.priceRange.max);
+              if (!inRange) {
+                console.log('产品价格超出范围:', product.productName, price, this.priceRange);
+              }
+              return inRange;
+            });
+            console.log('价格筛选后产品数:', result.length);
+            
+            // 2. 按苹果品种筛选
+            if (!this.filters.appleTypes.includes('all')) {
+              result = result.filter(product => {
+                const included = this.filters.appleTypes.includes(product.productType);
+                if (!included) {
+                  console.log('产品类型不符合筛选条件:', product.productName, product.productType, this.filters.appleTypes);
+                }
+                return included;
+              });
+              console.log('品种筛选后产品数:', result.length);
+            }
+            
+            // 3. 按品质等级筛选
+            if (!this.filters.qualityLevels.includes('all')) {
+              result = result.filter(product => {
+                const included = this.filters.qualityLevels.includes(product.qualityLevel);
+                if (!included) {
+                  console.log('产品品质不符合筛选条件:', product.productName, product.qualityLevel, this.filters.qualityLevels);
+                }
+                return included;
+              });
+              console.log('品质筛选后产品数:', result.length);
+            }
+            
+            // 4. 按搜索关键字筛选
+            if (this.searchQuery.trim()) {
+              const query = this.searchQuery.trim().toLowerCase();
+              result = result.filter(product => {
+                const matchesSearch = product.productName && product.productName.toLowerCase().includes(query);
+                if (!matchesSearch) {
+                  console.log('产品名称不匹配搜索关键字:', product.productName, query);
+                }
+                return matchesSearch;
+              });
+              console.log('搜索筛选后产品数:', result.length);
+            }
+            
+            // 5. 排序
+            this.sortProductArray(result);
+            console.log('最终筛选排序后产品数:', result.length);
+            
+            return result;
+          }
+        },
+        created() {
+          console.log('Vue实例已创建，挂载点是:', this.$el);
+          // 初始化加载 - 不再直接将allProducts赋值给products
+          this.products = [];
+          console.log('已加载产品数据:', this.allProducts.length, '个待筛选产品');
+        },
+        mounted() {
+          console.log('Vue实例已挂载到DOM上');
+          console.log('DOM元素:', this.$el);
+          console.log('当前计算出的筛选产品数:', this.filteredProducts.length);
+          
+          // 找出所有产品中的最低价和最高价，但限制最大值不超过30
+          this.updatePriceRange(this.allProducts);
+          
+          // 初始化RD Range组件
+          this.$nextTick(() => {
+            this.initRangeSlider();
+          });
+        },
+        methods: {
+          // 初始化价格范围滑块
+          initRangeSlider() {
+            setTimeout(() => {
+              if (window.jQuery && jQuery().RDRange) {
+                try {
+                  const minValue = Number(this.priceRange.min);
+                  const maxValue = Math.min(Number(this.priceRange.max), 30);
+                  
+                  // 确保RD Range组件存在
+                  const $rangeElement = $('.rd-range');
+                  if ($rangeElement.length === 0) {
+                    console.warn('找不到RD Range组件元素');
+                    return;
+                  }
+                  
+                  // 先销毁已存在的实例
+                  if ($rangeElement.data('RDRange')) {
+                    $rangeElement.RDRange('destroy');
+                  }
+                  
+                  // 更新属性
+                  $rangeElement.attr('data-min', '0');
+                  $rangeElement.attr('data-max', '30');
+                  $rangeElement.attr('data-start', `[${minValue}, ${maxValue}]`);
+                  
+                  // 更新输入框值
+                  $('.rd-range-input-value-1').val(minValue);
+                  $('.rd-range-input-value-2').val(maxValue);
+                  
+                  // 重新初始化
+                  $rangeElement.RDRange({});
+                  
+                  console.log('价格滑块初始化成功:', minValue, '-', maxValue);
+                } catch (error) {
+                  console.error('初始化价格滑块时出错:', error);
+                }
+              } else {
+                console.warn('jQuery或RDRange插件未加载，将在脚本加载后重试');
+                // 如果jQuery未加载，等待更长时间后再次尝试
+                setTimeout(() => this.initRangeSlider(), 1000);
+              }
+            }, 500);
+          },
+          getProducts() {
+            // 已经有模拟数据，不需要远程获取
+            console.log('使用模拟数据，跳过远程获取');
+            return;
+          },
+          
+          // 获取总商品数量
+          getTotalCount() {
+            return this.allProducts ? this.allProducts.length : 0;
+          },
+          
+          // 获取特定苹果品种的商品数量
+          getTypeCount(type) {
+            if (!this.allProducts) return 0;
+            return this.allProducts.filter(product => product.productType === type).length;
+          },
+          
+          // 获取特定品质等级的商品数量
+          getQualityCount(level) {
+            if (!this.allProducts) return 0;
+            return this.allProducts.filter(product => product.qualityLevel === level).length;
+          },
+          
+          // 搜索商品
+          searchProducts() {
+            console.log('搜索关键字:', this.searchQuery);
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 排序商品
+          sortProducts() {
+            console.log('排序方式:', this.sortOption);
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 按价格筛选
+          filterByPrice() {
+            console.log('按价格筛选:', this.priceRange);
+            
+            // 检查输入值是否有效，如果无效则重置为默认值
+            if (isNaN(Number(this.priceRange.min)) || Number(this.priceRange.min) < 0) {
+              this.priceRange.min = 0;
+            }
+            
+            if (isNaN(Number(this.priceRange.max)) || Number(this.priceRange.max) <= 0) {
+              this.priceRange.max = 30;
+            } else if (Number(this.priceRange.max) > 30) {
+              this.priceRange.max = 30;
+            }
+            
+            // 确保最小值不大于最大值
+            if (Number(this.priceRange.min) > Number(this.priceRange.max)) {
+              this.priceRange.min = 0;
+              this.priceRange.max = 30;
+            }
+            
+            // 主动触发UI滑块更新
+            this.$nextTick(() => {
+              this.initRangeSlider();
+            });
+            
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 商品筛选
+          filterProducts() {
+            console.log('筛选条件变更:', this.filters);
+            
+            // 处理全选项
+            if (this.filters.appleTypes.includes('all') && this.filters.appleTypes.length > 1) {
+              // 当选择了"全部"和其他选项时，只保留"全部"
+              this.filters.appleTypes = ['all'];
+            }
+            
+            if (this.filters.qualityLevels.includes('all') && this.filters.qualityLevels.length > 1) {
+              // 当选择了"全部"和其他选项时，只保留"全部"
+              this.filters.qualityLevels = ['all'];
+            }
+            
+            // 如果没有选择任何选项，则默认为全部
+            if (this.filters.appleTypes.length === 0) {
+              this.filters.appleTypes = ['all'];
+            }
+            
+            if (this.filters.qualityLevels.length === 0) {
+              this.filters.qualityLevels = ['all'];
+            }
+            
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 排序商品数组
+          sortProductArray(array) {
+            console.log('排序前的第一个产品:', array.length > 0 ? array[0].productName : '无产品');
+            
+            switch (this.sortOption) {
+              case 'newest':
+                // 默认排序（通常是最新）
+                console.log('保持默认排序（最新）');
+                break;
+              case 'price_asc':
+                // 价格从低到高
+                console.log('价格从低到高排序');
+                array.sort((a, b) => {
+                  const priceA = Number(a.calculatedPrice || a.price) || 0;
+                  const priceB = Number(b.calculatedPrice || b.price) || 0;
+                  return priceA - priceB;
+                });
+                break;
+              case 'price_desc':
+                // 价格从高到低
+                console.log('价格从高到低排序');
+                array.sort((a, b) => {
+                  const priceA = Number(a.calculatedPrice || a.price) || 0;
+                  const priceB = Number(b.calculatedPrice || b.price) || 0;
+                  return priceB - priceA;
+                });
+                break;
+              case 'name':
+                // 按名称排序
+                console.log('按名称排序');
+                array.sort((a, b) => {
+                  const nameA = a.productName || '';
+                  const nameB = b.productName || '';
+                  return nameA.localeCompare(nameB, 'zh-CN');
+                });
+                break;
+            }
+            
+            console.log('排序后的第一个产品:', array.length > 0 ? array[0].productName : '无产品');
+          },
+          
+          // 添加到购物车
+          addToCart(product) {
+            console.log('添加到购物车:', product.productName);
+            
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]')
+            const existingItem = cart.find(item => item.productId === product.productId)
+            
+            if (existingItem) {
+              if (existingItem.quantity >= product.stock) {
+                alert('库存不足')
+                return
+              }
+              existingItem.quantity += 1
+            } else {
+              cart.push({
+                ...product,
+                quantity: 1
+              })
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart))
+            alert('已添加到购物车')
+          },
+          
+          // 更新价格范围
+          updatePriceRange(products) {
+            if (!products || products.length === 0) return;
+            
+            // 找出最低价和最高价
+            let minPrice = Number.MAX_SAFE_INTEGER;
+            let maxPrice = 0;
+            
+            products.forEach(product => {
+              const price = Number(product.calculatedPrice || product.price) || 0;
+              if (price < minPrice) minPrice = price;
+              if (price > maxPrice) maxPrice = price;
+            });
+            
+            // 设置价格范围，但限制在0-30之间
+            this.priceRange.min = Math.max(0, Math.floor(minPrice * 0.9));
+            this.priceRange.max = Math.min(30, Math.ceil(maxPrice * 1.1)); 
+            
+            console.log('价格范围更新为:', this.priceRange);
+          },
+          
+          // 处理"全部"苹果品种选项
+          handleAllAppleTypes() {
+            if (this.filters.appleTypes.includes('all')) {
+              // 如果选择了"全部"，那么取消其他所有选项
+              this.filters.appleTypes = ['all'];
+            } else if (this.filters.appleTypes.length === 0) {
+              // 如果没有选择任何选项，默认为"全部"
+              this.filters.appleTypes = ['all'];
+            }
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 处理具体苹果品种选项
+          handleAppleTypeChange() {
+            if (this.filters.appleTypes.includes('all')) {
+              // 如果同时选择了具体品种和"全部"，移除"全部"选项
+              const index = this.filters.appleTypes.indexOf('all');
+              if (index > -1) {
+                this.filters.appleTypes.splice(index, 1);
+              }
+            }
+            
+            // 如果没有选择任何选项，默认为"全部"
+            if (this.filters.appleTypes.length === 0) {
+              this.filters.appleTypes = ['all'];
+            }
+            
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 处理"全部"品质等级选项
+          handleAllQualityLevels() {
+            if (this.filters.qualityLevels.includes('all')) {
+              // 如果选择了"全部"，那么取消其他所有选项
+              this.filters.qualityLevels = ['all'];
+            } else if (this.filters.qualityLevels.length === 0) {
+              // 如果没有选择任何选项，默认为"全部"
+              this.filters.qualityLevels = ['all'];
+            }
+            
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          },
+          
+          // 处理具体品质等级选项
+          handleQualityLevelChange() {
+            if (this.filters.qualityLevels.includes('all')) {
+              // 如果同时选择了具体等级和"全部"，移除"全部"选项
+              const index = this.filters.qualityLevels.indexOf('all');
+              if (index > -1) {
+                this.filters.qualityLevels.splice(index, 1);
+              }
+            }
+            
+            // 如果没有选择任何选项，默认为"全部"
+            if (this.filters.qualityLevels.length === 0) {
+              this.filters.qualityLevels = ['all'];
+            }
+            
+            // 清空当前产品列表，让computed属性重新计算
+            this.products = [];
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

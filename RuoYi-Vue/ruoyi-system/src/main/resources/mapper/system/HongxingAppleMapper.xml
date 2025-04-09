@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.HongxingAppleMapper">
+    
+    <resultMap type="HongxingApple" id="HongxingAppleResult">
+        <result property="id"    column="id"    />
+        <result property="productName"    column="product_name"    />
+        <result property="qualityLevel"    column="quality_level"    />
+        <result property="stock"    column="stock"    />
+        <result property="description"    column="description"    />
+        <result property="imageUrl"    column="image_url"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectHongxingAppleVo">
+        select id, product_name, quality_level, stock, description, image_url, status, create_by, create_time, update_by, update_time, remark from hongxing_apple
+    </sql>
+
+    <select id="selectHongxingAppleList" parameterType="HongxingApple" resultMap="HongxingAppleResult">
+        <include refid="selectHongxingAppleVo"/>
+        <where>  
+            <if test="productName != null  and productName != ''"> and product_name like concat('%', #{productName}, '%')</if>
+            <if test="qualityLevel != null  and qualityLevel != ''"> and quality_level = #{qualityLevel}</if>
+            <if test="stock != null "> and stock = #{stock}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="imageUrl != null  and imageUrl != ''"> and image_url = #{imageUrl}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectHongxingAppleById" parameterType="Long" resultMap="HongxingAppleResult">
+        <include refid="selectHongxingAppleVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHongxingApple" parameterType="HongxingApple" useGeneratedKeys="true" keyProperty="id">
+        insert into hongxing_apple
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productName != null and productName != ''">product_name,</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level,</if>
+            <if test="stock != null">stock,</if>
+            <if test="description != null">description,</if>
+            <if test="imageUrl != null">image_url,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productName != null and productName != ''">#{productName},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">#{qualityLevel},</if>
+            <if test="stock != null">#{stock},</if>
+            <if test="description != null">#{description},</if>
+            <if test="imageUrl != null">#{imageUrl},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHongxingApple" parameterType="HongxingApple">
+        update hongxing_apple
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productName != null and productName != ''">product_name = #{productName},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level = #{qualityLevel},</if>
+            <if test="stock != null">stock = #{stock},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="imageUrl != null">image_url = #{imageUrl},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHongxingAppleById" parameterType="Long">
+        delete from hongxing_apple where id = #{id}
+    </delete>
+
+    <delete id="deleteHongxingAppleByIds" parameterType="String">
+        delete from hongxing_apple where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

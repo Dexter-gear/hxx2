@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.PriceRuleMapper">
+    
+    <resultMap type="PriceRule" id="PriceRuleResult">
+        <result property="id"    column="id"    />
+        <result property="productType"    column="product_type"    />
+        <result property="qualityLevel"    column="quality_level"    />
+        <result property="basePrice"    column="base_price"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectPriceRuleVo">
+        select id, product_type, quality_level, base_price, create_time, update_time from price_rule
+    </sql>
+
+    <select id="selectPriceRuleList" parameterType="PriceRule" resultMap="PriceRuleResult">
+        <include refid="selectPriceRuleVo"/>
+        <where>  
+            <if test="productType != null  and productType != ''"> and product_type = #{productType}</if>
+            <if test="qualityLevel != null  and qualityLevel != ''"> and quality_level = #{qualityLevel}</if>
+            <if test="basePrice != null "> and base_price = #{basePrice}</if>
+        </where>
+    </select>
+    
+    <select id="selectPriceRuleById" parameterType="Long" resultMap="PriceRuleResult">
+        <include refid="selectPriceRuleVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertPriceRule" parameterType="PriceRule" useGeneratedKeys="true" keyProperty="id">
+        insert into price_rule
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productType != null and productType != ''">product_type,</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level,</if>
+            <if test="basePrice != null">base_price,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productType != null and productType != ''">#{productType},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">#{qualityLevel},</if>
+            <if test="basePrice != null">#{basePrice},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePriceRule" parameterType="PriceRule">
+        update price_rule
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productType != null and productType != ''">product_type = #{productType},</if>
+            <if test="qualityLevel != null and qualityLevel != ''">quality_level = #{qualityLevel},</if>
+            <if test="basePrice != null">base_price = #{basePrice},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePriceRuleById" parameterType="Long">
+        delete from price_rule where id = #{id}
+    </delete>
+
+    <delete id="deletePriceRuleByIds" parameterType="String">
+        delete from price_rule where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

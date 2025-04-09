@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Single Product</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CLato%7CKalam:300,400,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 添加Vue.js和Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-bell">
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+          <div class="cssload-circle">
+            <div class="cssload-inner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="100px" data-xl-stick-up-offset="100px" data-xxl-stick-up-offset="100px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="../"><img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/><img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="./index.html">首页</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="smoothie-shop.html">特色农产品</a>
+                        </li>
+                        <li class="rd-dropdown-item active"><a class="rd-dropdown-link" href="index.html">农产品基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="fruit-farm.html">苹果基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="poultry-farm.html">核桃基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="winery.html">板栗基地</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="dairy-farm.html">小米基地</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">产品分类</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="about-us.html">关于我们</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="what-we-offer.html">产品展示</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="our-team.html">我们的团队</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="testimonials.html">客户评价</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="pricing-list.html">价格列表</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-blog.html">新闻资讯</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-blog.html">行业动态</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-list.html">企业新闻</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">产品知识</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-gallery.html">产品展示</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-gallery.html">产品图片</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-fullwidth-gallery.html">基地展示</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="masonry-gallery.html">生产过程</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="masonry-fullwidth-gallery.html">荣誉展示</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="#">在线商城</a>
+                      <ul class="rd-menu rd-navbar-megamenu">
+                        <li class="rd-megamenu-item rd-megamenu-item-1">
+                          <h6 class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-apps"></span><span class="rd-megamenu-text">产品分类</span></h6>
+                          <ul class="rd-megamenu-list">
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">苹果系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="icon-lists.html">核桃系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="progress-bars.html">板栗系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="calls-to-action.html">小米系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tabs-and-accordions.html">山野菜系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="buttons.html">礼品系列</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="tables.html">其他特产</a></li>
+                          </ul>
+                        </li>
+                        <li class="rd-megamenu-item rd-megamenu-item-2">
+                          <h6 class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-layers"></span><span class="rd-megamenu-text">其他页面</span></h6>
+                          <ul class="rd-megamenu-list">
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 页面</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">即将上线</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="contact-us.html">联系我们</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="terms-of-use.html">使用条款</a></li>
+                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="search-results.html">搜索结果</a></li>
+                          </ul>
+                        </li>
+                        <li class="rd-megamenu-item rd-megamenu-banner">
+                          <div class="rd-megamenu-title"><span class="rd-megamenu-icon mdi mdi-carrot"></span><span class="rd-megamenu-text">欢迎光临我们的商店</span></div><a class="banner-classic" href="grid-shop.html"><img src="images/banner-1-300x202.jpg" alt="" width="300" height="202"/></a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="grid-shop.html">购物中心</a>
+                      <ul class="rd-menu rd-navbar-dropdown">
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ecwid-shop.html">网上商城</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-shop.html">商品列表</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="shop-list.html">商品详情</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="single-product.html">单个商品</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="cart-page.html">购物车</a>
+                        </li>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="checkout.html">结算中心</a>
+                        </li>>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <!-- RD Navbar Search-->
+                  <div class="rd-navbar-search rd-navbar-search-2">
+                    <button class="rd-navbar-search-toggle rd-navbar-fixed-element-3" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+                    <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                      <div class="form-wrap">
+                        <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
+                        <label class="form-label" for="rd-navbar-search-form-input">Search...</label>
+                        <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                        <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- RD Navbar Basket-->
+                  <div class="rd-navbar-basket-wrap">
+                    <button class="rd-navbar-basket fl-bigmug-line-shopping202" data-rd-navbar-toggle=".cart-inline"><span>2</span></button>
+                    <div class="cart-inline">
+                      <div class="cart-inline-header">
+                        <h5 class="cart-inline-title">In cart:<span> 2</span> Products</h5>
+                        <h6 class="cart-inline-title">Total price:<span> $43</span></h6>
+                      </div>
+                      <div class="cart-inline-body">
+                        <div class="cart-inline-item">
+                          <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-6-100x90.png" alt="" width="100" height="90"/></a></div>
+                            <div class="unit-body">
+                              <h6 class="cart-inline-name"><a href="single-product.html">Oranges</a></h6>
+                              <div>
+                                <div class="group-xs group-middle">
+                                  <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
+                                  </div>
+                                  <h6 class="cart-inline-title">$20.00</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-inline-item">
+                          <div class="unit unit-spacing-sm align-items-center">
+                            <div class="unit-left"><a class="cart-inline-figure" href="single-product.html"><img src="images/product-mini-7-100x90.png" alt="" width="100" height="90"/></a></div>
+                            <div class="unit-body">
+                              <h6 class="cart-inline-name"><a href="single-product.html">Bananas</a></h6>
+                              <div>
+                                <div class="group-xs group-middle">
+                                  <div class="table-cart-stepper">
+                                    <input class="form-input" type="number" data-zeros="true" value="1" min="1" max="1000"/>
+                                  </div>
+                                  <h6 class="cart-inline-title">$23.00</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cart-inline-footer">
+                        <div class="group-sm"><a class="button button-default-outline-2 button-zakaria" href="cart-page.html">Go to cart</a><a class="button button-primary button-zakaria" href="checkout.html">Checkout</a></div>
+                      </div>
+                    </div>
+                  </div><a class="rd-navbar-basket rd-navbar-basket-mobile fl-bigmug-line-shopping202 rd-navbar-fixed-element-2" href="cart-page.html"><span>2</span></a>
+                  <button class="rd-navbar-project-hamburger rd-navbar-project-hamburger-open rd-navbar-fixed-element-1" type="button" data-multitoggle=".rd-navbar-main" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate="data-multitoggle-isolate"><span class="project-hamburger"><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span><span class="project-hamburger-line"></span></span></button>
+                </div>
+                <div class="rd-navbar-project">
+                  <div class="rd-navbar-project-header">
+                    <button class="rd-navbar-project-hamburger rd-navbar-project-hamburger-close" type="button" data-multitoggle=".rd-navbar-main" data-multitoggle-blur=".rd-navbar-wrap" data-multitoggle-isolate><span class="project-close"><span></span><span></span></span></button>
+                    <h5 class="rd-navbar-project-title">Our Contacts</h5>
+                  </div>
+                  <div class="rd-navbar-project-content">
+                    <div>
+                      <div>
+                        <!-- Owl Carousel-->
+                        <div class="owl-carousel" data-items="1" data-dots="true" data-autoplay="true"><img src="images/about-5-350x269.jpg" alt="" width="350" height="269"/><img src="images/about-6-350x269.jpg" alt="" width="350" height="269"/><img src="images/about-7-350x269.jpg" alt="" width="350" height="269"/>
+                        </div>
+                        <ul class="contacts-modern">
+                          <li><a href="#">523 Sylvan Ave, 5th Floor<br>Mountain View, CA 94041 USA</a></li>
+                          <li><a href="tel:#">+1 (844) 123 456 78</a></li>
+                        </ul>
+                      </div>
+                      <div>
+                        <ul class="list-inline list-social list-inline-xl">
+                          <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                          <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                          <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                          <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/bg-shop.jpg">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">商品详情</h2>
+            </div>
+          </div>
+        </div>
+        <div class="breadcrumbs-custom-footer">
+          <div class="container">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">首页</a></li>
+              <li><a href="grid-shop.html">商店</a></li>
+              <li class="active">商品详情</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Single Product-->
+      <section class="section section-sm section-first bg-default">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-lg-6">
+              <div class="slick-vertical slick-product">
+                <!-- Slick Carousel-->
+                <div class="slick-slider carousel-parent" id="carousel-parent" data-items="1" data-swipe="true" data-child="#child-carousel" data-for="#child-carousel">
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-1-530x480.png" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-2-530x480.jpg" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-3-530x480.jpg" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="slick-slider child-carousel slick-nav-1" id="child-carousel" data-arrows="true" data-items="3" data-sm-items="3" data-md-items="3" data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-md-vertical="true" data-for="#carousel-parent">
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-1-530x480.png" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-2-530x480.jpg" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="slick-product-figure"><img src="images/single-product-3-530x480.jpg" alt="" width="530" height="480"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div id="app">
+                <!-- 加载状态 -->
+                <div v-if="loading" class="text-center py-5">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">加载中...</span>
+                  </div>
+                </div>
+
+                <!-- 错误提示 -->
+                <div v-else-if="error" class="alert alert-danger" role="alert">
+                  {{ error }}
+                  <div class="mt-3">
+                    <a href="index.html" class="button button-lg button-secondary button-zakaria">返回商品列表</a>
+                  </div>
+                </div>
+
+                <!-- 商品详情 -->
+                <div v-else class="single-product">
+                  <h3 class="text-transform-none fw-medium">{{ product.productName }}</h3>
+                  <div class="group-md group-middle">
+                    <div class="single-product-price">¥{{ product.price }}</div>
+                    <div class="single-product-rating">
+                      <span class="icon mdi mdi-star"></span>
+                      <span class="icon mdi mdi-star"></span>
+                      <span class="icon mdi mdi-star"></span>
+                      <span class="icon mdi mdi-star"></span>
+                      <span class="icon mdi mdi-star-half"></span>
+                    </div>
+                  </div>
+                  <p>{{ product.description }}</p>
+                  <hr class="hr-gray-100">
+                  <ul class="list list-description">
+                    <li><span>分类:</span><span>{{ product.categoryName }}</span></li>
+                    <li><span>库存:</span><span>{{ product.stock }}</span></li>
+                    <li><span>状态:</span><span>{{ product.status == 1 ? '上架' : '下架' }}</span></li>
+                  </ul>
+                  <div class="group-xs group-middle">
+                    <div class="product-stepper">
+                      <input class="form-input" type="number" v-model="quantity" min="1" :max="product.stock">
+                    </div>
+                    <div>
+                      <a class="button button-lg button-secondary button-zakaria" href="cart-page.html" @click="addToCart">加入购物车</a>
+                    </div>
+                  </div>
+                  <hr class="hr-gray-100">
+                  <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+                    <div>
+                      <ul class="list-inline list-social list-inline-sm">
+                        <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                        <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                        <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                        <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bootstrap tabs-->
+          <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-1">
+            <!-- Nav tabs-->
+            <div class="nav-tabs-wrap">
+              <ul class="nav nav-tabs nav-tabs-1">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-bs-toggle="tab">评论</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-bs-toggle="tab">信息</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-bs-toggle="tab">配送和支付</a></li>
+              </ul>
+            </div>
+            <!-- Tab panes-->
+            <div class="tab-content tab-content-1">
+              <div class="tab-pane fade show active" id="tabs-1-1">
+                <div class="box-comment">
+                  <div class="unit flex-column flex-sm-row unit-spacing-md">
+                    <div class="unit-left"><a class="box-comment-figure" href="#"><img src="images/user-1-119x119.jpg" alt="" width="119" height="119"/></a></div>
+                    <div class="unit-body">
+                      <div class="group-sm group-justify">
+                        <div>
+                          <div class="group-xs group-middle">
+                            <h5 class="box-comment-author"><a href="#">张女士</a></h5>
+                            <div class="box-comment-reply"><a href="#">回复</a></div>
+                          </div>
+                        </div>
+                        <div class="box-comment-time">
+                          <time datetime="2023-11-30">2023年11月30日</time>
+                        </div>
+                      </div>
+                      <p class="box-comment-text">平山的红富士苹果确实不错，个大皮薄，很甜，全家都很喜欢，包装也很好，物流速度快。</p>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-transform-none fw-medium">创建新评论</h4>
+                <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <div class="row row-20 row-md-30">
+                    <div class="col-lg-12">
+                      <div class="form-wrap">
+                        <label class="form-label" for="contact-message-2">评论内容</label>
+                        <textarea class="form-input textarea-lg" id="contact-message-2" name="message" data-constraints="@Required"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-wrap">
+                        <label class="form-label">评分</label>
+                        <div class="rating">
+                          <input type="radio" id="star5" name="rating" value="5" checked>
+                          <label for="star5" title="5分">☆</label>
+                          <input type="radio" id="star4" name="rating" value="4">
+                          <label for="star4" title="4分">☆</label>
+                          <input type="radio" id="star3" name="rating" value="3">
+                          <label for="star3" title="3分">☆</label>
+                          <input type="radio" id="star2" name="rating" value="2">
+                          <label for="star2" title="2分">☆</label>
+                          <input type="radio" id="star1" name="rating" value="1">
+                          <label for="star1" title="1分">☆</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="button button-lg button-secondary button-zakaria" type="submit">提交评论</button>
+                </form>
+                <style>
+                  .rating {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                  }
+                  .rating input {
+                    display: none;
+                  }
+                  .rating label {
+                    font-size: 30px;
+                    color: #ddd;
+                    cursor: pointer;
+                    margin-right: 5px;
+                  }
+                  .rating input:checked ~ label,
+                  .rating label:hover,
+                  .rating label:hover ~ label {
+                    color: #ffd700;
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <!-- Page Footer-->
+      <footer class="section footer-classic">
+        <div class="footer-classic-body section-lg">
+          <div class="container">
+            <div class="row row-40 row-md-50 justify-content-xl-between">
+              <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight">
+                <div class="footer-classic-brand">
+                  <!--Brand--><a class="brand" href="../"><img class="brand-logo-dark" src="images/logo-default-280x92.png" alt="" width="140" height="46"/><img class="brand-logo-light" src="images/logo-inverse-280x92.png" alt="" width="140" height="46"/></a>
+                </div>
+                <ul class="list-schedule">
+                  <li><span>Weekdays:</span><span>08:00am - 08:00pm</span></li>
+                  <li><span>Weekends:</span><span>10:00am - 06:00pm</span></li>
+                </ul>
+                <div class="footer-classic-social">
+                  <div class="group-lg group-middle">
+                    <p>Get Social</p>
+                    <div>
+                      <ul class="list-inline list-social list-inline-sm">
+                        <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                        <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                        <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                        <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+                <h4 class="footer-classic-title">Contacts</h4>
+                <ul class="contacts-creative">
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                      <div class="unit-body"><a href="#">523 Sylvan Ave, 5th Floor<br/>Mountain View, CA 94041 USA</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                      <div class="unit-body"><a href="tel:#">+1 (844) 123 456 78</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit unit-spacing-sm flex-column flex-md-row">
+                      <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                      <div class="unit-body"><a href="mailto:#">info@demolink.org</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
+                <h4 class="footer-classic-title">Newsletter</h4>
+                <p>Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                <!-- RD Mailform-->
+                <form class="rd-form rd-mailform rd-form-inline rd-form-inline-2" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                  <div class="form-wrap">
+                    <input class="form-input" id="subscribe-form-2-email" type="email" name="email" data-constraints="@Email @Required"/>
+                    <label class="form-label" for="subscribe-form-2-email">Enter your e-mail</label>
+                  </div>
+                  <div class="form-button">
+                    <button class="button button-icon-2 button-zakaria button-secondary" type="submit"><span class="fl-bigmug-line-paper122"></span></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-classic-panel">
+          <div class="container">
+            <div class="row row-10 align-items-center justify-content-sm-between">
+              <div class="col-md-auto">
+                <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Farm</span><span>.&nbsp; All rights reserved.</span></p>
+              </div>
+              <div class="col-md-auto order-md-1"><a href="terms-of-use.html">Privacy Policy</a> <a target="_blank" href="https://www.mobanwang.com/" title="网站模板">网站模板</a></div>
+              <div class="col-md-auto">
+                <div class="group-sm group-middle"><img src="images/payment-1-45x15.png" alt="" width="45" height="15"/><img src="images/payment-2-46x28.png" alt="" width="46" height="28"/><img src="images/payment-3-62x17.png" alt="" width="62" height="17"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="js/review.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          loading: true,
+          error: null,
+          product: {},
+          quantity: 1,
+          tableName: '',
+          productType: '',
+          priceRules: [] // 存储价格规则
+        }
+      },
+      created() {
+        this.getProduct()
+      },
+      methods: {
+        getProductId() {
+          const urlParams = new URLSearchParams(window.location.search)
+          return urlParams.get('id')
+        },
+        getProductType() {
+          const urlParams = new URLSearchParams(window.location.search)
+          return urlParams.get('type') || 'red_fuji_apple'  // 默认为红富士苹果
+        },
+        getTableName() {
+          const urlParams = new URLSearchParams(window.location.search)
+          return urlParams.get('tableName') // 获取表名参数
+        },
+        async getProduct() {
+          this.loading = true
+          this.error = ''
+          
+          try {
+            const productId = this.getProductId()
+            if (!productId) {
+              this.error = '商品ID不能为空'
+              this.loading = false
+              return
+            }
+
+            this.tableName = this.getTableName()
+            this.productType = this.getProductType()
+
+            if (!window.api || !window.api.getAppleDetail) {
+              this.error = 'API未正确加载'
+              this.loading = false
+              return
+            }
+                        // 先获取价格规则
+                        await this.getPriceRules()
+
+            let response
+            const token = localStorage.getItem('token')
+            if (!token) {
+              window.location.href = 'login.html'
+              return
+            }
+
+            if (this.tableName) {
+              // 使用表名直接请求
+              response = await axios.get(`http://localhost:8080/system/${this.tableName}/${productId}`, {
+                headers: {
+                  'Authorization': 'Bearer ' + token
+                }
+              })
+              response = response.data // axios返回的是包装后的响应
+            } else {
+              // 使用原有的API方法
+              response = await window.api.getAppleDetail(productId, this.productType)
+            }
+            
+            console.log('商品详情响应:', response)
+            
+            if (response.code === 200) {
+              if (response.data) {
+                const data = response.data
+                const qualityLevel = data.qualityLevel || '特级'
+                const rawPrice = data.price || 0
+                
+                // 计算价格
+                const calculatedPrice = this.calculatePrice(
+                  data.productType || this.productType, 
+                  qualityLevel, 
+                  rawPrice
+                )
+
+                this.product = {
+                  productId: data.id,
+                  productName: data.productName,
+                  price: calculatedPrice, // 使用计算后的价格
+                  rawPrice: rawPrice, // 保存原始价格
+                  stock: data.stock || 0,
+                  imageUrl: data.imageUrl || 'images/product-1-220x160.png',
+                  description: data.description || '暂无描述',
+                  qualityLevel: qualityLevel,
+                  categoryName: this.getProductTypeName(data.productType || this.productType) || '苹果',
+                  status: data.status || '0',
+                  tableName: this.tableName || ''
+                }
+              } else {
+                this.error = '商品不存在'
+              }
+            } else {
+              this.error = response.msg || '获取商品详情失败'
+            }
+          } catch (error) {
+            console.error('获取商品详情失败:', error)
+            this.error = '获取商品详情失败，请稍后重试'
+          } finally {
+            this.loading = false
+          }
+        },
+        getProductTypeName(type) {
+          const typeMap = {
+            'red_fuji_apple': '红富士苹果',
+            'hongxing_apple': '红星苹果',
+            'guoguang_apple': '国光苹果',
+            'jinguan_apple': '金冠苹果',
+            'green_apple': '青苹果'
+          }
+          return typeMap[type] || '苹果'
+        },
+        async addToCart() {
+          try {
+            if (this.quantity > this.product.stock) {
+              alert('超出库存数量')
+              return
+            }
+
+            const cartItem = {
+              productId: this.product.productId,
+              productName: this.product.productName,
+              price: this.product.price,
+              quantity: this.quantity,
+              imageUrl: this.product.imageUrl
+            }
+
+            let cartList = JSON.parse(localStorage.getItem('cartList') || '[]')
+            const existingItem = cartList.find(item => item.productId === cartItem.productId)
+            
+            if (existingItem) {
+              existingItem.quantity += cartItem.quantity
+            } else {
+              cartList.push(cartItem)
+            }
+
+            localStorage.setItem('cartList', JSON.stringify(cartList))
+            alert('添加成功')
+          } catch (error) {
+            console.error('添加购物车失败:', error)
+            alert('添加失败，请稍后重试')
+          }
+        },
+        async getPriceRules() {
+          try {
+            const token = localStorage.getItem('token')
+            if (!token) {
+              window.location.href = 'login.html'
+              return
+            }
+            
+            const response = await axios.get('http://localhost:8080/system/rule/list', {
+              headers: {
+                'Authorization': 'Bearer ' + token
+              }
+            })
+            
+            if (response.data && response.data.code === 200 && response.data.rows) {
+              this.priceRules = response.data.rows
+              console.log('成功获取价格规则:', this.priceRules)
+            } else {
+              console.error('获取价格规则失败:', response.data)
+            }
+          } catch (error) {
+            console.error('获取价格规则请求失败:', error)
+          }
+        },
+        calculatePrice(productType, qualityLevel, defaultPrice) {
+          // 查找匹配的价格规则
+          const priceRule = this.priceRules.find(rule => 
+            rule.productType === productType && rule.qualityLevel === qualityLevel
+          )
+          
+          // 如果找到匹配的规则，返回基础价格
+          if (priceRule && priceRule.basePrice) {
+            return priceRule.basePrice
+          }
+          
+          // 否则返回默认价格
+          return defaultPrice
+        }
+      }
+    })
+    </script>
+  </body>
+</html>
